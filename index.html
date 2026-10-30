@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pâmela Cimirro | Analista de Dados & BI</title>
+  <meta name="description" content="Portfólio de Pâmela Araujo Cimirro Rosa — Analista de Dados e Business Intelligence. Power BI, SQL, Python, ETL com Apache Hop e modelagem de dados.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0f2a4a;
+      --navy-2: #1b3d66;
+      --teal: #0fa3a3;
+      --teal-soft: #e3f5f4;
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --text: #1e2a3a;
+      --muted: #5b6b80;
+      --line: #e2e8f0;
+      --radius: 12px;
+      --max: 1080px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+    a { color: var(--navy-2); text-decoration: none; }
+    a:hover { color: var(--teal); }
+    img { max-width: 100%; display: block; }
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* Navegação */
+    header.nav {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(255,255,255,0.95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(6px);
+    }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .brand { font-weight: 700; color: var(--navy); font-size: 1.05rem; }
+    .brand span { color: var(--teal); }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { color: var(--muted); font-weight: 500; font-size: 0.95rem; }
+    .nav-links a:hover { color: var(--navy); }
+
+    /* Hero */
+    .hero { padding: 88px 0 72px; background: var(--surface); border-bottom: 1px solid var(--line); }
+    .eyebrow {
+      display: inline-block; font-size: 0.8rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; color: var(--teal); background: var(--teal-soft);
+      padding: 6px 12px; border-radius: 999px; margin-bottom: 20px;
+    }
+    .hero h1 { font-size: clamp(2rem, 4.5vw, 3rem); color: var(--navy); line-height: 1.15; margin-bottom: 16px; }
+    .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 680px; margin-bottom: 28px; }
+    .stack { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+    .tag {
+      font-size: 0.85rem; font-weight: 500; color: var(--navy-2);
+      border: 1px solid var(--line); background: var(--bg);
+      padding: 5px 12px; border-radius: 999px;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 8px; font-weight: 600; font-size: 0.95rem;
+      border: 1px solid var(--navy); transition: background .15s, color .15s;
+    }
+    .btn-primary { background: var(--navy); color: #fff; }
+    .btn-primary:hover { background: var(--navy-2); color: #fff; }
+    .btn-outline { color: var(--navy); background: transparent; }
+    .btn-outline:hover { background: var(--navy); color: #fff; }
+
+    /* Seções */
+    section { padding: 72px 0; }
+    .section-title { font-size: 1.75rem; color: var(--navy); margin-bottom: 8px; }
+    .section-sub { color: var(--muted); margin-bottom: 40px; max-width: 640px; }
+    .section-title::after {
+      content: ""; display: block; width: 48px; height: 3px;
+      background: var(--teal); border-radius: 2px; margin-top: 10px;
+    }
+
+    /* Sobre */
+    .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: start; }
+    .about-text p { margin-bottom: 16px; color: var(--text); }
+    .highlights { display: grid; gap: 14px; }
+    .highlight {
+      background: var(--surface); border: 1px solid var(--line); border-left: 3px solid var(--teal);
+      border-radius: var(--radius); padding: 16px 18px;
+    }
+    .highlight strong { display: block; color: var(--navy); font-size: 0.98rem; }
+    .highlight span { color: var(--muted); font-size: 0.9rem; }
+
+    /* Competências */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 24px;
+    }
+    .card h3 { color: var(--navy); font-size: 1.05rem; margin-bottom: 10px; }
+    .card ul { list-style: none; }
+    .card li { color: var(--muted); font-size: 0.93rem; padding: 3px 0 3px 16px; position: relative; }
+    .card li::before {
+      content: ""; position: absolute; left: 0; top: 12px;
+      width: 6px; height: 6px; border-radius: 50%; background: var(--teal);
+    }
+
+    /* Projetos */
+    .projects { display: grid; gap: 32px; }
+    .project {
+      display: grid; grid-template-columns: 1.2fr 1fr; gap: 0;
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); overflow: hidden;
+    }
+    .project:nth-child(even) { grid-template-columns: 1fr 1.2fr; }
+    .project:nth-child(even) .project-media { order: 2; }
+    .project-media {
+      background: #eef2f7; display: flex; flex-direction: column; gap: 10px;
+      padding: 16px; border-right: 1px solid var(--line);
+    }
+    .project:nth-child(even) .project-media { border-right: 0; border-left: 1px solid var(--line); }
+    .project-media img {
+      width: 100%; border-radius: 8px; border: 1px solid var(--line);
+      object-fit: cover; object-position: top; cursor: zoom-in; background: #fff;
+    }
+    .project-media .main { height: 380px; }
+    .thumbs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .thumbs img, .thumbs .placeholder { height: 110px; }
+    .placeholder {
+      display: flex; align-items: center; justify-content: center; text-align: center;
+      color: var(--muted); font-size: 0.82rem; padding: 12px;
+      border: 1px dashed #c5d0de; border-radius: 8px; background: #f5f8fb;
+    }
+    .media-caption { font-size: 0.8rem; color: var(--muted); }
+    .project-body { padding: 28px; display: flex; flex-direction: column; gap: 12px; }
+    .project-type { font-size: 0.78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--teal); }
+    .project-body h3 { color: var(--navy); font-size: 1.25rem; }
+    .project-body p { color: var(--muted); font-size: 0.95rem; }
+    .project-body dl { display: grid; gap: 8px; font-size: 0.92rem; }
+    .project-body dt { font-weight: 600; color: var(--navy); }
+    .project-body dd { color: var(--muted); margin-bottom: 4px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+    .note {
+      margin-top: 24px; font-size: 0.85rem; color: var(--muted);
+      background: var(--surface); border: 1px dashed var(--line); border-radius: 8px; padding: 12px 16px;
+    }
+
+    /* Experiência (timeline) */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before {
+      content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px;
+      width: 2px; background: var(--line);
+    }
+    .tl-item { position: relative; margin-bottom: 36px; }
+    .tl-item::before {
+      content: ""; position: absolute; left: -28px; top: 6px;
+      width: 14px; height: 14px; border-radius: 50%;
+      background: var(--surface); border: 3px solid var(--teal);
+    }
+    .tl-item.past::before { border-color: var(--navy-2); }
+    .tl-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; margin-bottom: 4px; }
+    .tl-head h3 { color: var(--navy); font-size: 1.08rem; }
+    .tl-date { color: var(--muted); font-size: 0.88rem; font-weight: 500; }
+    .tl-org { color: var(--teal); font-weight: 600; font-size: 0.93rem; margin-bottom: 8px; }
+    .tl-item ul { padding-left: 18px; color: var(--muted); font-size: 0.94rem; }
+    .tl-item li { margin-bottom: 4px; }
+
+    /* Formação */
+    .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .edu-grid .card p { color: var(--muted); font-size: 0.92rem; }
+    .status { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--teal); background: var(--teal-soft); padding: 2px 8px; border-radius: 999px; margin-top: 8px; }
+
+    /* Contato */
+    .contact { background: var(--navy); color: #dbe5f1; }
+    .contact .section-title { color: #fff; }
+    .contact .section-sub { color: #b8c7da; }
+    .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .contact-item {
+      display: block; padding: 18px 20px; border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,0.15); color: #fff;
+      transition: border-color .15s, background .15s;
+    }
+    .contact-item:hover { border-color: var(--teal); background: rgba(15,163,163,0.08); color: #fff; }
+    .contact-item small { display: block; color: #8fb3c9; font-size: 0.78rem; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 4px; }
+
+    footer { background: var(--navy); color: #8fa3bb; text-align: center; font-size: 0.85rem; padding: 0 0 32px; }
+
+    /* Lightbox simples para ampliar dashboards */
+    .lightbox {
+      position: fixed; inset: 0; background: rgba(10,20,35,0.88);
+      display: none; align-items: center; justify-content: center; padding: 24px; z-index: 50; cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-height: 90vh; border-radius: 8px; }
+
+    @media (max-width: 820px) {
+      .nav-links { display: none; }
+      .about-grid, .project, .project:nth-child(even) { grid-template-columns: 1fr; }
+      .project:nth-child(even) .project-media { order: 0; border-left: 0; }
+      .project-media { border-right: 0; border-bottom: 1px solid var(--line); }
+      .project-media .main { height: 280px; }
+      .hero { padding: 56px 0 48px; }
+      section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#inicio" class="brand">Pâmela<span>.</span>Cimirro</a>
+      <ul class="nav-links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#competencias">Competências</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <span class="eyebrow">Dados &amp; Business Intelligence</span>
+      <h1>Pâmela Araujo Cimirro Rosa</h1>
+      <p class="lead">
+        Transformo dados de diferentes sistemas em informação confiável para decisão:
+        da extração e integração (ETL) à modelagem em Data Warehouse e aos dashboards em Power BI.
+      </p>
+      <div class="stack">
+        <span class="tag">Power BI</span>
+        <span class="tag">DAX</span>
+        <span class="tag">SQL</span>
+        <span class="tag">Python</span>
+        <span class="tag">Apache Hop</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">MongoDB</span>
+        <span class="tag">APIs</span>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="#projetos">Ver projetos</a>
+        <a class="btn btn-outline" href="assets/curriculo_pamela_cimirro.pdf" target="_blank" rel="noopener">Baixar currículo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="container about-grid">
+      <div class="about-text">
+        <h2 class="section-title">Sobre mim</h2>
+        <p>
+          Atuo na área de dados da <strong>Procempa</strong> (Companhia de Processamento de Dados de Porto Alegre),
+          desenvolvendo pipelines de ETL, integrando fontes como SQL Server, PostgreSQL, MongoDB e APIs,
+          estruturando dados em Data Warehouse e entregando dashboards para áreas de negócio da gestão municipal.
+        </p>
+        <p>
+          Antes da tecnologia, foram mais de 10 anos na saúde — como enfermeira e depois como gerente de equipes
+          hospitalares. Lá aprendi a trabalhar com metas, indicadores e recursos limitados, e a traduzir números
+          em decisões práticas. Essa experiência hoje é meu diferencial: entendo a pergunta de negócio antes de
+          abrir o banco de dados.
+        </p>
+        <p>
+          Estou concluindo a graduação em Análise e Desenvolvimento de Sistemas (Senac, dez/2026)
+          e busco oportunidades como <strong>Analista de Dados / BI</strong>.
+        </p>
+      </div>
+      <div class="highlights">
+        <div class="highlight"><strong>Dados ponta a ponta</strong><span>Extração, tratamento, carga, modelagem e visualização</span></div>
+        <div class="highlight"><strong>Visão de negócio</strong><span>4 anos em gestão, acompanhando metas e resultados</span></div>
+        <div class="highlight"><strong>Setor público</strong><span>Soluções de dados para secretarias municipais</span></div>
+        <div class="highlight"><strong>Comunicação com clientes</strong><span>Levantamento de demandas e alinhamento de entregas</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETÊNCIAS -->
+  <section id="competencias" style="background: var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="container">
+      <h2 class="section-title">Competências técnicas</h2>
+      <p class="section-sub">Ferramentas que uso no dia a dia, do dado bruto ao indicador.</p>
+      <div class="skills-grid">
+        <div class="card">
+          <h3>Business Intelligence</h3>
+          <ul>
+            <li>Power BI (dashboards e relatórios)</li>
+            <li>DAX e Power Query</li>
+            <li>Definição de indicadores (KPIs)</li>
+            <li>Data Storytelling</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Engenharia de dados</h3>
+          <ul>
+            <li>ETL com Apache Hop</li>
+            <li>Integração de APIs</li>
+            <li>Tratamento e qualidade de dados</li>
+            <li>Carga em Data Warehouse</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Bancos de dados</h3>
+          <ul>
+            <li>PostgreSQL</li>
+            <li>SQL Server</li>
+            <li>MongoDB</li>
+            <li>Modelagem dimensional</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Programação e análise</h3>
+          <ul>
+            <li>SQL</li>
+            <li>Python (pandas, APIs)</li>
+            <li>Estatística aplicada</li>
+            <li>Excel avançado</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos">
+    <div class="container">
+      <h2 class="section-title">Projetos</h2>
+      <p class="section-sub">
+        Dashboards gerenciais desenvolvidos para secretarias da Prefeitura de Porto Alegre, com dados
+        extraídos dos sistemas de origem, tratados via ETL e consolidados em Data Warehouse.
+        Logotipos, nomes de sistemas e informações sensíveis foram ocultados.
+      </p>
+
+      <div class="projects">
+
+        <!-- PROJETO 1 — Processos BPM (ponta a ponta) -->
+        <article class="project">
+          <div class="project-media">
+            <img class="main" src="assets/bpm-processos.jpg" alt="Dashboard de indicadores de processos BPM, com totais por situação, tempo médio de tramitação e evolução mensal" loading="lazy">
+            <div class="thumbs">
+              <!-- Quando tiver a imagem do pipeline, troque o placeholder abaixo por:
+                   <img src="assets/bpm-pipeline-hop.jpg" alt="Pipeline no Apache Hop que alimenta o painel de processos"> -->
+              <div class="placeholder">Pipeline no Apache Hop<br>(em breve)</div>
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-type">Ponta a ponta · ETL + DW + Power BI</span>
+            <h3>Indicadores de Processos BPM</h3>
+            <dl>
+              <dt>Objetivo</dt>
+              <dd>Dar ao nível gerencial uma visão consolidada da tramitação de processos administrativos
+                  de licenciamento: volume, situação e tempo de resposta ao cidadão.</dd>
+              <dt>O que o painel mostra</dt>
+              <dd>Mais de 43 mil processos desde 2020, em 18 tipos: totais por situação, tempo médio de tramitação
+                  (concluídos e em andamento) por ano e por tipo, evolução mensal da demanda e detalhamento por processo.</dd>
+              <dt>Destaques técnicos</dt>
+              <dd>Extração do sistema de BPM e carga no Data Warehouse com Apache Hop; cálculo de tempo
+                  bruto e líquido (opção de desconsiderar tarefas de complementação); páginas de processos e de tarefas;
+                  atualização diária automática.</dd>
+            </dl>
+            <div class="project-tags">
+              <span class="tag">Apache Hop</span><span class="tag">PostgreSQL</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">DAX</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJETO 2 — Veículos de Divulgação -->
+        <article class="project">
+          <div class="project-media">
+            <img class="main" src="assets/veiculos-divulgacao.jpg" alt="Dashboard de licenciamento de veículos de divulgação com indicadores por enquadramento, finalidade e potencial poluidor" loading="lazy">
+          </div>
+          <div class="project-body">
+            <span class="project-type">Dashboard · Power BI</span>
+            <h3>Licenciamento de Veículos de Divulgação</h3>
+            <dl>
+              <dt>Objetivo</dt>
+              <dd>Acompanhar os pedidos de licenciamento de publicidade externa (letreiros, painéis de LED, totens,
+                  outdoors) e a arrecadação gerada pelo serviço.</dd>
+              <dt>O que o painel mostra</dt>
+              <dd>Pedidos por situação, enquadramento, finalidade do anúncio, estrutura e potencial poluidor;
+                  anúncios em áreas de interesse cultural e na orla; solicitações de parcelamento.</dd>
+              <dt>Destaques técnicos</dt>
+              <dd>Relatório com três visões navegáveis — dados gerais, arrecadação e controle de boletos —
+                  e filtros por porte, isenção de taxa e licenciamento ambiental.</dd>
+            </dl>
+            <div class="project-tags">
+              <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Modelagem de dados</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJETO 3 — Bem-estar animal -->
+        <article class="project">
+          <div class="project-media">
+            <img class="main" src="assets/bem-estar-castracoes.jpg" alt="Dashboard de castrações em clínicas parceiras por espécie, porte, gênero e clínica" loading="lazy">
+            <div class="thumbs">
+              <img src="assets/bem-estar-adocoes.jpg" alt="Dashboard de adoções de animais por mês, tipo de adoção, situação e motivo de cancelamento" loading="lazy">
+            </div>
+          </div>
+          <div class="project-body">
+            <span class="project-type">Dashboard · Power BI</span>
+            <h3>Bem-estar Animal: Castrações e Adoções</h3>
+            <dl>
+              <dt>Objetivo</dt>
+              <dd>Apoiar a gestão dos programas municipais de castração em clínicas parceiras e de adoção de cães e gatos.</dd>
+              <dt>O que o painel mostra</dt>
+              <dd>Mais de 22 mil castrações deferidas, por espécie, porte, gênero, clínica, bairro e região;
+                  pedidos de adoção por situação e tipo (online, presencial, feiras) e motivos de cancelamento.</dd>
+              <dt>Destaques técnicos</dt>
+              <dd>Dois relatórios com navegação por abas — dados gerais, análises específicas, avaliação financeira,
+                  perfil do adotante e animais devolvidos — com filtros laterais padronizados.</dd>
+            </dl>
+            <div class="project-tags">
+              <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">SQL</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- MODELO PARA UM PROJETO PESSOAL FUTURO — copie, preencha e descomente
+        <article class="project">
+          <div class="project-media">
+            <img class="main" src="assets/projeto-pessoal.jpg" alt="...">
+          </div>
+          <div class="project-body">
+            <span class="project-type">Projeto pessoal · Python + Power BI</span>
+            <h3>Nome do projeto</h3>
+            <p>Descrição curta: fonte de dados, o que foi feito e o que a análise revela.</p>
+            <div class="project-tags"><span class="tag">Python</span><span class="tag">pandas</span></div>
+            <a href="https://github.com/Pamelacimirro/NOME-DO-REPO" target="_blank" rel="noopener">Ver código no GitHub →</a>
+          </div>
+        </article>
+        -->
+
+      </div>
+      <p class="note">Clique em qualquer imagem para ver o dashboard completo.</p>
+    </div>
+  </section>
+
+  <!-- EXPERIÊNCIA -->
+  <section id="experiencia" style="background: var(--surface); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="container">
+      <h2 class="section-title">Experiência</h2>
+      <p class="section-sub">Da gestão em saúde à engenharia e análise de dados.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-head"><h3>Estagiária — Área de Dados</h3><span class="tl-date">jul/2025 – atual</span></div>
+          <div class="tl-org">Procempa — Companhia de Processamento de Dados de Porto Alegre</div>
+          <ul>
+            <li>Desenvolvimento e manutenção de pipelines ETL com Apache Hop, SQL e Python.</li>
+            <li>Integração de dados de SQL Server, PostgreSQL, MongoDB e APIs.</li>
+            <li>Tratamento, modelagem e carga em Data Warehouse PostgreSQL.</li>
+            <li>Dashboards e relatórios gerenciais em Power BI para clientes internos.</li>
+            <li>Reuniões com áreas demandantes para levantamento e alinhamento de requisitos.</li>
+          </ul>
+        </div>
+        <div class="tl-item past">
+          <div class="tl-head"><h3>Gerente de Unidade / Líder de Equipe</h3><span class="tl-date">out/2020 – out/2024</span></div>
+          <div class="tl-org">Hospital Divina Providência</div>
+          <ul>
+            <li>Gestão de equipes e das atividades operacionais de unidades de saúde.</li>
+            <li>Análise de relatórios de metas e resultados para melhoria de desempenho.</li>
+            <li>Redesenho de fluxos de trabalho e controle de insumos para reduzir desperdícios.</li>
+            <li>Capacitação e desenvolvimento de profissionais.</li>
+          </ul>
+        </div>
+        <div class="tl-item past">
+          <div class="tl-head"><h3>Enfermeira de Saúde da Família</h3><span class="tl-date">jul/2014 – set/2020</span></div>
+          <div class="tl-org">Prefeitura Municipal de Porto Alegre</div>
+          <ul>
+            <li>Organização de processos assistenciais e fluxos de atendimento em Unidades Básicas de Saúde.</li>
+            <li>Capacitações em imunização para equipes de enfermagem da Coordenadoria Leste.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORMAÇÃO -->
+  <section id="formacao">
+    <div class="container">
+      <h2 class="section-title">Formação</h2>
+      <p class="section-sub">Graduações e cursos complementares.</p>
+      <div class="edu-grid">
+        <div class="card">
+          <h3>Análise e Desenvolvimento de Sistemas</h3>
+          <p>Senac São Paulo · ago/2024 – dez/2026</p>
+          <span class="status">Em andamento</span>
+        </div>
+        <div class="card">
+          <h3>Bacharelado em Enfermagem</h3>
+          <p>PUCRS · 2006 – 2009</p>
+        </div>
+        <div class="card">
+          <h3>Cursos complementares (2025–2026)</h3>
+          <ul>
+            <li>Python para Dados</li>
+            <li>Python e APIs</li>
+            <li>Estatística com Python</li>
+            <li>Data Storytelling</li>
+            <li>Power BI: Modelagem de Dados</li>
+            <li>Power BI: Dashboards Interativos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="contact" id="contato">
+    <div class="container">
+      <h2 class="section-title">Vamos conversar?</h2>
+      <p class="section-sub">Aberta a oportunidades em Análise de Dados e BI — Porto Alegre, híbrido ou remoto.</p>
+      <div class="contact-grid">
+        <a class="contact-item" href="mailto:pamela.cimirro@gmail.com"><small>E-mail</small>pamela.cimirro@gmail.com</a>
+        <a class="contact-item" href="https://www.linkedin.com/in/pamela-rosa-ads/" target="_blank" rel="noopener"><small>LinkedIn</small>in/pamela-rosa-ads</a>
+        <a class="contact-item" href="https://github.com/Pamelacimirro" target="_blank" rel="noopener"><small>GitHub</small>github.com/Pamelacimirro</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© <span id="ano"></span> Pâmela Cimirro · Porto Alegre, RS</div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true"><img alt=""></div>
+
+  <script>
+    document.getElementById('ano').textContent = new Date().getFullYear();
+    const lb = document.getElementById('lightbox');
+    const lbImg = lb.querySelector('img');
+    document.querySelectorAll('.project-media img').forEach(img => {
+      img.addEventListener('click', () => { lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add('open'); });
+    });
+    lb.addEventListener('click', () => lb.classList.remove('open'));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') lb.classList.remove('open'); });
+  </script>
+</body>
+</html>
