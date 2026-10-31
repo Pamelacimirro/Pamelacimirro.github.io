@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pâmela Cimirro | Analista de Dados & BI</title>
+  <title>Pâmela Rosa | Analista de Dados & BI</title>
   <meta name="description" content="Portfólio de Pâmela Araujo Cimirro Rosa — Analista de Dados e Business Intelligence. Power BI, SQL, Python, ETL com Apache Hop e modelagem de dados.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -137,6 +137,9 @@
       border: 1px dashed #c5d0de; border-radius: 8px; background: #f5f8fb;
     }
     .media-caption { font-size: 0.8rem; color: var(--muted); }
+    .project-media img.pipeline { object-fit: contain; object-position: center; background: #ececec; padding: 6px; }
+    .thumbs img.pipeline { grid-column: 1 / -1; height: 170px; }
+    .project-media img.main.pipeline { height: 300px; }
     .project-body { padding: 28px; display: flex; flex-direction: column; gap: 12px; }
     .project-type { font-size: 0.78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--teal); }
     .project-body h3 { color: var(--navy); font-size: 1.25rem; }
@@ -213,7 +216,7 @@
 
   <header class="nav">
     <div class="container nav-inner">
-      <a href="#inicio" class="brand">Pâmela<span>.</span>Cimirro</a>
+      <a href="#inicio" class="brand">Pâmela<span>.</span>Rosa</a>
       <ul class="nav-links">
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#competencias">Competências</a></li>
@@ -243,10 +246,12 @@
         <span class="tag">SQL Server</span>
         <span class="tag">MongoDB</span>
         <span class="tag">APIs</span>
+        <span class="tag">Git</span>
+        <span class="tag">Jenkins</span>
       </div>
       <div class="actions">
         <a class="btn btn-primary" href="#projetos">Ver projetos</a>
-        <a class="btn btn-outline" href="assets/curriculo_pamela_cimirro.pdf" target="_blank" rel="noopener">Baixar currículo</a>
+        <a class="btn btn-outline" href="assets/curriculo-pamela-rosa.pdf" target="_blank" rel="noopener">Baixar currículo</a>
       </div>
     </div>
   </section>
@@ -303,6 +308,8 @@
             <li>Integração de APIs</li>
             <li>Tratamento e qualidade de dados</li>
             <li>Carga em Data Warehouse</li>
+            <li>Versionamento com Git</li>
+            <li>Agendamento de cargas com Jenkins</li>
           </ul>
         </div>
         <div class="card">
@@ -332,8 +339,8 @@
     <div class="container">
       <h2 class="section-title">Projetos</h2>
       <p class="section-sub">
-        Dashboards gerenciais desenvolvidos para secretarias da Prefeitura de Porto Alegre, com dados
-        extraídos dos sistemas de origem, tratados via ETL e consolidados em Data Warehouse.
+        Dashboards gerenciais e pipelines de dados desenvolvidos para secretarias da Prefeitura de Porto Alegre:
+        dados extraídos dos sistemas de origem, tratados via ETL e consolidados em Data Warehouse.
         Logotipos, nomes de sistemas e informações sensíveis foram ocultados.
       </p>
 
@@ -344,9 +351,7 @@
           <div class="project-media">
             <img class="main" src="assets/bpm-processos.jpg" alt="Dashboard de indicadores de processos BPM, com totais por situação, tempo médio de tramitação e evolução mensal" loading="lazy">
             <div class="thumbs">
-              <!-- Quando tiver a imagem do pipeline, troque o placeholder abaixo por:
-                   <img src="assets/bpm-pipeline-hop.jpg" alt="Pipeline no Apache Hop que alimenta o painel de processos"> -->
-              <div class="placeholder">Pipeline no Apache Hop<br>(em breve)</div>
+              <img class="pipeline" src="assets/bpm-pipeline-hop.jpg" alt="Workflow no Apache Hop com script Python, carga incremental de arquivos Parquet e carga em lote no PostgreSQL" loading="lazy">
             </div>
           </div>
           <div class="project-body">
@@ -360,12 +365,14 @@
               <dd>Mais de 43 mil processos desde 2020, em 18 tipos: totais por situação, tempo médio de tramitação
                   (concluídos e em andamento) por ano e por tipo, evolução mensal da demanda e detalhamento por processo.</dd>
               <dt>Destaques técnicos</dt>
-              <dd>Extração do sistema de BPM e carga no Data Warehouse com Apache Hop; cálculo de tempo
-                  bruto e líquido (opção de desconsiderar tarefas de complementação); páginas de processos e de tarefas;
-                  atualização diária automática.</dd>
+              <dd>Workflow no Apache Hop que executa um script Python de extração, define variáveis e roda a
+                  carga incremental: lê arquivos Parquet, compara com a tabela destino (merge join) e grava apenas
+                  os registros novos via PostgreSQL Bulk Loader. No painel, cálculo de tempo bruto e líquido
+                  (opção de desconsiderar tarefas de complementação), páginas de processos e de tarefas.
+                  Projeto versionado em Git e executado diariamente pelo Jenkins.</dd>
             </dl>
             <div class="project-tags">
-              <span class="tag">Apache Hop</span><span class="tag">PostgreSQL</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">DAX</span>
+              <span class="tag">Python</span><span class="tag">Apache Hop</span><span class="tag">Parquet</span><span class="tag">PostgreSQL</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Git</span><span class="tag">Jenkins</span>
             </div>
           </div>
         </article>
@@ -387,10 +394,11 @@
                   anúncios em áreas de interesse cultural e na orla; solicitações de parcelamento.</dd>
               <dt>Destaques técnicos</dt>
               <dd>Relatório com três visões navegáveis — dados gerais, arrecadação e controle de boletos —
-                  e filtros por porte, isenção de taxa e licenciamento ambiental.</dd>
+                  e filtros por porte, isenção de taxa e licenciamento ambiental. Dados atualizados diariamente
+                  por pipeline versionado em Git e agendado no Jenkins.</dd>
             </dl>
             <div class="project-tags">
-              <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Modelagem de dados</span>
+              <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Modelagem de dados</span><span class="tag">Jenkins</span>
             </div>
           </div>
         </article>
@@ -401,6 +409,7 @@
             <img class="main" src="assets/bem-estar-castracoes.jpg" alt="Dashboard de castrações em clínicas parceiras por espécie, porte, gênero e clínica" loading="lazy">
             <div class="thumbs">
               <img src="assets/bem-estar-adocoes.jpg" alt="Dashboard de adoções de animais por mês, tipo de adoção, situação e motivo de cancelamento" loading="lazy">
+              <img class="pipeline" src="assets/animal-pipeline-hop.jpg" alt="Pipeline no Apache Hop que compara os dados de origem com a tabela destino e separa inserções e atualizações" loading="lazy">
             </div>
           </div>
           <div class="project-body">
@@ -413,11 +422,41 @@
               <dd>Mais de 22 mil castrações deferidas, por espécie, porte, gênero, clínica, bairro e região;
                   pedidos de adoção por situação e tipo (online, presencial, feiras) e motivos de cancelamento.</dd>
               <dt>Destaques técnicos</dt>
-              <dd>Dois relatórios com navegação por abas — dados gerais, análises específicas, avaliação financeira,
-                  perfil do adotante e animais devolvidos — com filtros laterais padronizados.</dd>
+              <dd>Pipeline no Apache Hop que busca os dados do sistema de atendimentos veterinários, compara com a
+                  tabela destino (stream lookup) e separa os registros em inserções e atualizações, com padronização
+                  de textos antes da carga. Dois relatórios com navegação por abas — dados gerais, análises
+                  específicas, avaliação financeira, perfil do adotante e animais devolvidos. Carga diária agendada no Jenkins.</dd>
             </dl>
             <div class="project-tags">
-              <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">SQL</span>
+              <span class="tag">Apache Hop</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Jenkins</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJETO 4 — Geocodificação via API (sem dashboard) -->
+        <article class="project">
+          <div class="project-media">
+            <img class="main pipeline" src="assets/cdl-pipeline-hop.jpg" alt="Pipeline no Apache Hop que valida endereços, consulta uma API REST e grava coordenadas ou pendências no PostgreSQL" loading="lazy">
+            <p class="media-caption">Pipeline de uma das tabelas atendidas pelo projeto.</p>
+          </div>
+          <div class="project-body">
+            <span class="project-type">ETL · Integração com API</span>
+            <h3>Enriquecimento de Endereços: CDL e Coordenadas</h3>
+            <dl>
+              <dt>Objetivo</dt>
+              <dd>Completar tabelas de licenciamento com o código de logradouro (CDL), latitude e longitude,
+                  tornando os dados prontos para análises e mapas por localização.</dd>
+              <dt>Como funciona</dt>
+              <dd>Os registros são validados (CDL e número obrigatórios; inválidos vão para um arquivo de correção),
+                  a requisição é montada em JavaScript e enviada a uma API REST, e a resposta JSON é tratada.
+                  Registros com coordenadas são gravados no banco; os sem retorno seguem para uma tabela de pendências.</dd>
+              <dt>Destaques técnicos</dt>
+              <dd>Lógica de insert/update para cada tabela atendida e uma tabela de controle que acumula as consultas
+                  com códigos inválidos — evitando chamadas repetidas à API e permitindo a correção posterior pela equipe.
+                  Execução diária pelo Jenkins a partir do repositório Git.</dd>
+            </dl>
+            <div class="project-tags">
+              <span class="tag">Apache Hop</span><span class="tag">API REST</span><span class="tag">JSON</span><span class="tag">JavaScript</span><span class="tag">PostgreSQL</span><span class="tag">Git</span><span class="tag">Jenkins</span>
             </div>
           </div>
         </article>
@@ -453,6 +492,7 @@
           <div class="tl-org">Procempa — Companhia de Processamento de Dados de Porto Alegre</div>
           <ul>
             <li>Desenvolvimento e manutenção de pipelines ETL com Apache Hop, SQL e Python.</li>
+            <li>Versionamento dos projetos em Git e execução diária automatizada via Jenkins.</li>
             <li>Integração de dados de SQL Server, PostgreSQL, MongoDB e APIs.</li>
             <li>Tratamento, modelagem e carga em Data Warehouse PostgreSQL.</li>
             <li>Dashboards e relatórios gerenciais em Power BI para clientes internos.</li>
@@ -525,7 +565,7 @@
   </section>
 
   <footer>
-    <div class="container">© <span id="ano"></span> Pâmela Cimirro · Porto Alegre, RS</div>
+    <div class="container">© <span id="ano"></span> Pâmela Rosa · Porto Alegre, RS</div>
   </footer>
 
   <div class="lightbox" id="lightbox" aria-hidden="true"><img alt=""></div>
