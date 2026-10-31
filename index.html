@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pâmela Rosa | Analista de Dados & BI</title>
+  <title>Pâmela Cimirro | Analista de Dados & BI</title>
   <meta name="description" content="Portfólio de Pâmela Araujo Cimirro Rosa — Analista de Dados e Business Intelligence. Power BI, SQL, Python, ETL com Apache Hop e modelagem de dados.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -111,13 +111,15 @@
     }
 
     /* Projetos */
+    .container-wide { max-width: 1320px; }
+    .container-wide .section-sub { max-width: none; }
     .projects { display: grid; gap: 32px; }
     .project {
-      display: grid; grid-template-columns: 1.2fr 1fr; gap: 0;
+      display: grid; grid-template-columns: 1.25fr 1fr; gap: 0;
       background: var(--surface); border: 1px solid var(--line);
       border-radius: var(--radius); overflow: hidden;
     }
-    .project:nth-child(even) { grid-template-columns: 1fr 1.2fr; }
+    .project:nth-child(even) { grid-template-columns: 1fr 1.25fr; }
     .project:nth-child(even) .project-media { order: 2; }
     .project-media {
       background: #eef2f7; display: flex; flex-direction: column; gap: 10px;
@@ -128,7 +130,7 @@
       width: 100%; border-radius: 8px; border: 1px solid var(--line);
       object-fit: cover; object-position: top; cursor: zoom-in; background: #fff;
     }
-    .project-media .main { height: 380px; }
+    .project-media .main { flex: 1 1 auto; height: 0; min-height: 340px; }
     .thumbs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
     .thumbs img, .thumbs .placeholder { height: 110px; }
     .placeholder {
@@ -139,7 +141,7 @@
     .media-caption { font-size: 0.8rem; color: var(--muted); }
     .project-media img.pipeline { object-fit: contain; object-position: center; background: #ececec; padding: 6px; }
     .thumbs img.pipeline { grid-column: 1 / -1; height: 170px; }
-    .project-media img.main.pipeline { height: 300px; }
+    .project-media img.main.pipeline { flex: 0 0 auto; height: auto; min-height: 0; }
     .project-body { padding: 28px; display: flex; flex-direction: column; gap: 12px; }
     .project-type { font-size: 0.78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--teal); }
     .project-body h3 { color: var(--navy); font-size: 1.25rem; }
@@ -206,7 +208,8 @@
       .about-grid, .project, .project:nth-child(even) { grid-template-columns: 1fr; }
       .project:nth-child(even) .project-media { order: 0; border-left: 0; }
       .project-media { border-right: 0; border-bottom: 1px solid var(--line); }
-      .project-media .main { height: 280px; }
+      .project-media .main { flex: none; height: 280px; min-height: 0; }
+      .project-media img.main.pipeline { height: auto; }
       .hero { padding: 56px 0 48px; }
       section { padding: 56px 0; }
     }
@@ -216,7 +219,7 @@
 
   <header class="nav">
     <div class="container nav-inner">
-      <a href="#inicio" class="brand">Pâmela<span>.</span>Rosa</a>
+      <a href="#inicio" class="brand">Pâmela<span>.</span>Cimirro</a>
       <ul class="nav-links">
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#competencias">Competências</a></li>
@@ -251,7 +254,7 @@
       </div>
       <div class="actions">
         <a class="btn btn-primary" href="#projetos">Ver projetos</a>
-        <a class="btn btn-outline" href="assets/curriculo-pamela-rosa.pdf" target="_blank" rel="noopener">Baixar currículo</a>
+        <a class="btn btn-outline" href="assets/curriculo_pamela_cimirro.pdf" target="_blank" rel="noopener">Baixar currículo</a>
       </div>
     </div>
   </section>
@@ -267,8 +270,8 @@
           estruturando dados em Data Warehouse e entregando dashboards para áreas de negócio da gestão municipal.
         </p>
         <p>
-          Antes da tecnologia, foram mais de 10 anos na saúde — como enfermeira e depois como gerente de equipes
-          hospitalares. Lá aprendi a trabalhar com metas, indicadores e recursos limitados, e a traduzir números
+          Antes da tecnologia, foram mais de 10 anos na saúde — como enfermeira e depois como gerente de unidades
+          de saúde. Lá aprendi a trabalhar com metas, indicadores e recursos limitados, e a traduzir números
           em decisões práticas. Essa experiência hoje é meu diferencial: entendo a pergunta de negócio antes de
           abrir o banco de dados.
         </p>
@@ -336,7 +339,7 @@
 
   <!-- PROJETOS -->
   <section id="projetos">
-    <div class="container">
+    <div class="container container-wide">
       <h2 class="section-title">Projetos</h2>
       <p class="section-sub">
         Dashboards gerenciais e pipelines de dados desenvolvidos para secretarias da Prefeitura de Porto Alegre:
@@ -388,7 +391,7 @@
             <dl>
               <dt>Objetivo</dt>
               <dd>Acompanhar os pedidos de licenciamento de publicidade externa (letreiros, painéis de LED, totens,
-                  outdoors) e a arrecadação gerada pelo serviço.</dd>
+                  outdoors).</dd>
               <dt>O que o painel mostra</dt>
               <dd>Pedidos por situação, enquadramento, finalidade do anúncio, estrutura e potencial poluidor;
                   anúncios em áreas de interesse cultural e na orla; solicitações de parcelamento.</dd>
@@ -424,8 +427,8 @@
               <dt>Destaques técnicos</dt>
               <dd>Pipeline no Apache Hop que busca os dados do sistema de atendimentos veterinários, compara com a
                   tabela destino (stream lookup) e separa os registros em inserções e atualizações, com padronização
-                  de textos antes da carga. Dois relatórios com navegação por abas — dados gerais, análises
-                  específicas, avaliação financeira, perfil do adotante e animais devolvidos. Carga diária agendada no Jenkins.</dd>
+                  de textos antes da carga. O projeto conta com um portal inicial que direciona para cada relatório; aqui são apresentados dois deles. 
+                  Carga diária agendada no Jenkins.</dd>
             </dl>
             <div class="project-tags">
               <span class="tag">Apache Hop</span><span class="tag">SQL</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Jenkins</span>
@@ -477,7 +480,7 @@
         -->
 
       </div>
-      <p class="note">Clique em qualquer imagem para ver o dashboard completo.</p>
+      
     </div>
   </section>
 
@@ -495,7 +498,7 @@
             <li>Versionamento dos projetos em Git e execução diária automatizada via Jenkins.</li>
             <li>Integração de dados de SQL Server, PostgreSQL, MongoDB e APIs.</li>
             <li>Tratamento, modelagem e carga em Data Warehouse PostgreSQL.</li>
-            <li>Dashboards e relatórios gerenciais em Power BI para clientes internos.</li>
+            <li>Dashboards e relatórios gerenciais em Power BI para clientes.</li>
             <li>Reuniões com áreas demandantes para levantamento e alinhamento de requisitos.</li>
           </ul>
         </div>
@@ -565,7 +568,7 @@
   </section>
 
   <footer>
-    <div class="container">© <span id="ano"></span> Pâmela Rosa · Porto Alegre, RS</div>
+    <div class="container">© <span id="ano"></span> Pâmela Cimirro · Porto Alegre, RS</div>
   </footer>
 
   <div class="lightbox" id="lightbox" aria-hidden="true"><img alt=""></div>
